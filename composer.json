@@ -1,0 +1,79 @@
+{
+	"name": "2hyoon/seed",
+	"description": "Wordpress theme starter with Timber",
+	"repositories":[
+		{
+			"type":"composer",
+			"url":"https://wpackagist.org"
+		},
+		{
+			"type": "package",
+			"package": {
+				"name": "advanced-custom-fields/advanced-custom-fields-pro",
+				"version": "5.12.2",
+				"type": "wordpress-plugin",
+				"dist": {
+					"type": "zip",
+					"url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k=b3JkZXJfaWQ9NzkyNDF8dHlwZT1wZXJzb25hbHxkYXRlPTIwMTYtMDQtMTAgMDY6MjQ6MTE=&t=5.12.2"
+				},
+				"require": {
+					"composer/installers": "^2.0",
+					"ffraenz/private-composer-installer": "^5.0"
+				}
+			}
+		},
+		{
+			"type": "package",
+			"package": {
+					"name": "wordpress/wordpress",
+					"type": "webroot",
+					"version": "6.0",
+					"dist": {
+							"type": "zip",
+							"url": "https://wordpress.org/wordpress-6.0-no-content.zip"
+					},
+					"require": {
+							"fancyguy/webroot-installer": "^1.0"
+					}
+			}
+	}
+	],
+	"extra": {
+		"webroot-dir": "public",
+		"webroot-package": "wordpress/wordpress",
+		"installer-paths": {
+			"public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+			"public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+			"public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+		}
+	},
+	"require": {
+		"wordpress/wordpress": "6.0",
+		"advanced-custom-fields/advanced-custom-fields-pro": "5.12.2",
+		"wpackagist-plugin/acf-better-search": "4.0.1",
+		"wpackagist-plugin/classic-editor":"1.6.2",
+		"wpackagist-plugin/contact-form-7":"5.5.5",
+		"wpackagist-plugin/disable-comments": "2.3.2",
+		"wpackagist-plugin/timber-library": "1.19.1",
+		"wpackagist-plugin/wordpress-seo":"17.9",
+		"wpackagist-plugin/disable-xml-rpc":"1.0.1",
+		"wpackagist-plugin/sucuri-scanner":"1.8.31",
+		"wpackagist-plugin/redirection":"5.2.3"
+	},
+	"scripts": {
+		"pre-install-cmd": [
+			"mkdir wp",
+			"mv public/wp-content/themes/seed wp/seed",
+			"mv public/wp-config-lando.php wp/wp-config-lando.php"
+		],
+		"post-install-cmd": [
+			"mkdir public/wp-content/themes",
+			"mv wp/seed public/wp-content/themes/seed",
+			"mv wp/wp-config-lando.php public/wp-config-lando.php",
+			"cp public/wp-config-lando.php public/wp-config.php",
+			"rm -fr wp"
+		],
+		"pre-update-cmd": "@pre-install-cmd",
+		"post-update-cmd": "@post-install-cmd"
+	}
+}

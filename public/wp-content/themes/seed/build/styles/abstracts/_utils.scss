@@ -1,0 +1,56 @@
+/**
+* image 
+**/
+.img-full-width {
+  width: 100%;
+}
+
+/**
+* text align
+**/
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+/**
+* margin
+**/
+.mt {
+  margin-top: rem(60px);
+
+  @include breakpoint-up(map.get($bps, "tablet")) {
+    margin-top: rem(90px);
+  }
+}
+
+.mb {
+  margin-bottom: rem(60px);
+
+  @include breakpoint-up(map.get($bps, "tablet")) {
+    margin-bottom: rem(90px);
+  }
+}
+
+/**
+* Wordpress elements
+**/
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}

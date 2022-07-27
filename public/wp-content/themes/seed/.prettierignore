@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+
+# OS or Editor folders
+.cache
+.DS_Store
+
+#
+dist
+build/scripts/vendors/*.js
+build/styles/vendor/*.scss
+acf-json
