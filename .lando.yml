@@ -1,0 +1,13 @@
+name: seed
+recipe: wordpress
+config:
+  webroot: public
+  php: '8.0'
+proxy:
+  phpmyadmin:
+    - pma.seed.lndo.site
+services:
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database

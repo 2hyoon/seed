@@ -1,0 +1,59 @@
+.DS_Store
+.svn
+.cvs
+*.bak
+*.swp
+*.map
+*.sql
+*.sql.gz
+*.bak
+*.log
+*.pem
+*.crt
+*.key
+*.log
+Thumbs.db
+.sass-cache/
+.vscode/
+
+# Root
+/vendor
+
+# Wordpress
+# Core
+/public/wp-admin/
+/public/wp-content/index.php
+/public/wp-content/*.log
+/public/wp-content/languages
+/public/wp-includes/
+/public/index.php
+/public/license.txt
+/public/readme.html
+/public/wp-*.php
+/public/xmlrpc.php
+!/public/wp-config-lando.php
+
+# Themes
+/public/wp-content/themes/index.php
+/public/wp-content/themes/twenty*/
+
+# Plugin
+/public/wp-content/mu-plugins/
+/public/wp-content/plugins/
+# !/public/wp-content/plugins/exclude-this-plugin*
+
+# Uploads
+/public/wp-content/uploads/
+
+# Upgrade
+/public/wp-content/upgrade/
+
+# Etc
+/public/composer.json
+/public/.htaccess
+
+# Custom Theme
+/public/wp-content/themes/seed/vendor
+/public/wp-content/themes/seed/node_modules
+/public/wp-content/themes/seed/.cache
+/public/wp-content/themes/seed/.sass-cache
